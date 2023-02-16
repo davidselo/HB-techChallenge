@@ -25,7 +25,21 @@ export default class PickRun extends Command {
     const file = './data/hb_test.csv'
     const csvHandler = new ReadCsv(file)
 
-    await csvHandler.readPickUpCsv()
+    const result = await csvHandler.readPickUpCsv()
+    this.log('Pick run sort by Bay')
+
+    ux.table(result, {
+      productCode: {
+        minWidth: 7,
+      },
+      quantity: {
+        minWidth: 7,
+      },
+      pickLocation: {
+        minWidth: 7,
+      },
+    })
+
     ux.action.stop()
   }
 }

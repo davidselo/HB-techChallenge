@@ -1,5 +1,5 @@
-export interface ProductLocation {
-  productCode: string;
-  quantity: number;
+export type ProductLocation = {
+  productCode: string
+  quantity: number
   pickLocation: string}
 
