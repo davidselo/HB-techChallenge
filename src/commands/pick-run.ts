@@ -3,7 +3,7 @@ import {ReadCsv} from '../helpers/read-csv'
 import {WriteCsv} from '../helpers/write-csv'
 
 export default class PickRun extends Command {
-  static description = 'describe the command here'
+  static description = 'Check the file data/optimalPickRun.csv to download an optimise pick run.'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
