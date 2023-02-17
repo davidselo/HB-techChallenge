@@ -1,5 +1,6 @@
-import {Args, Command, Flags, ux,} from '@oclif/core'
+import {Args, Command, Flags, ux} from '@oclif/core'
 import {ReadCsv} from '../helpers/read-csv'
+import {WriteCsv} from '../helpers/write-csv'
 
 export default class PickRun extends Command {
   static description = 'describe the command here'
@@ -21,11 +22,11 @@ export default class PickRun extends Command {
 
   public async run(): Promise<void> {
     // Start the spinner.
-    ux.action.start('Processing Pick run File')
+    ux.action.start('Reading Pick run File')
     const file = './data/hb_test.csv'
-    const csvHandler = new ReadCsv(file)
+    const csvReadHandler = new ReadCsv(file)
 
-    const result = await csvHandler.readPickUpCsv()
+    const result = await csvReadHandler.readPickUpCsv()
     this.log('Pick run sort by Bay')
 
     ux.table(result, {
@@ -39,7 +40,10 @@ export default class PickRun extends Command {
         minWidth: 7,
       },
     })
-
+    ux.action.stop()
+    ux.action.start('Generating output file')
+    const csvWriteHandler = new WriteCsv(result)
+    csvWriteHandler.writeOptimalPickRun()
     ux.action.stop()
   }
 }
