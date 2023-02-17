@@ -1,4 +1,5 @@
 import {ProductLocation} from '../contracts/products'
+// eslint-disable-next-line unicorn/prefer-module
 const fs = require('fs')
 const filename = 'data/optimalPickRun.csv'
 const writableStream = fs.createWriteStream(filename)
