@@ -40,10 +40,15 @@ export default class PickRun extends Command {
         minWidth: 7,
       },
     })
+    // Stop spinner.
     ux.action.stop()
+
+    // Start spinner
     ux.action.start('Generating output file')
     const csvWriteHandler = new WriteCsv(result)
     csvWriteHandler.writeOptimalPickRun()
+
+    // Stop spinner
     ux.action.stop()
   }
 }

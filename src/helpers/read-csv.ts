@@ -22,7 +22,7 @@ export class ReadCsv {
             quantity: Number(row[1]),
             pickLocation: String(row[2]),
           }
-
+          // Add tuple to accumulator array.
           this.productLocationsArray.push(tuple)
         })
         .on('end', () => {

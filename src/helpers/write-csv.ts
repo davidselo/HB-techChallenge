@@ -18,9 +18,11 @@ export class WriteCsv {
       // eslint-disable-next-line camelcase
       const stringifier = stringify({header: true, columns: ['productCode', 'quantity', 'pickLocation'], quoted_match: ' '})
       for (const tuple of this.data) {
+        // save tuple in stringifier.
         stringifier.write(tuple)
       }
 
+      // dump content on in csv file.
       stringifier.pipe(writableStream)
     }
 }
