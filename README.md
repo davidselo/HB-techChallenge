@@ -1,4 +1,4 @@
-oclif-hello-world
+hb technical challenge
 =================
 
 HB command line technical challenge. 
